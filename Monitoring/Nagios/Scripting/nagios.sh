@@ -45,6 +45,7 @@ sudo wget https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.6.t
     sudo ufw status
 yes | sudo apt install monitoring-plugins nagios-nrpe-plugin
 <<<<<<< HEAD
+<<<<<<< HEAD
 sudo mkdir -p /usr/local/nagios/etc/servers
 sudo nano /usr/local/nagios/etc/nagios.cfg
 cfg_file=/usr/local/nagios/etc/objects/linux.cfg
@@ -96,6 +97,8 @@ source .bashrc
 nagioscheck
 
 =======
+=======
+>>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
     cd /usr/local/nagios/etc
     sudo mkdir -p /usr/local/nagios/etc/servers
 sudo nano nagios.cfg
@@ -113,6 +116,9 @@ define command{
   	command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
 }
 
+<<<<<<< HEAD
+>>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
+=======
 >>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
 sudo systemctl start nagios
 sudo systemctl enable nagios
@@ -120,9 +126,13 @@ sudo systemctl status nagios
 sudo systemctl restart apache2
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 http://10.0.0.10/nagios/
 
 nagiosreload
+=======
+https://IP/nagios/
+>>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
 =======
 https://IP/nagios/
 >>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e

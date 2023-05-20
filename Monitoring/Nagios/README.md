@@ -99,7 +99,11 @@ Show your appreciation to those who have contributed to the project.
 For open source projects, say how it is licensed.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Project status
+=======
+## Project status.
+>>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
 =======
 ## Project status.
 >>>>>>> 7c1f5899eeeae67756b7b47ccec6ada2562fc13e
