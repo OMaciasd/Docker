@@ -3,7 +3,6 @@
 yes | sudo apt upgrade
     yes | sudo apt update
     yes | sudo apt autoremove
-
 apt-cache search nrpe
     yes | sudo apt-get install nagios-nrpe-server nagios-plugins-basic nagios-plugins
 
