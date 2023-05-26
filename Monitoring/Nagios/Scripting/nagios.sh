@@ -41,7 +41,7 @@ sudo wget https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.6.t
     sudo systemctl restart apache2;
     sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin;
     sudo ufw allow apache;
-    sudo ufw enable;
+    echo y | sudo ufw enable;
     sudo ufw reload;
     sudo ufw status;
 yes | sudo apt install monitoring-plugins nagios-nrpe-plugin;
@@ -53,10 +53,10 @@ cfg_dir=/usr/local/nagios/etc/servers
 sudo nano /usr/local/nagios/etc/resource.cfg
 $USER1$=/usr/lib/nagios/plugins
 
-# Commands.
 sudo nano /usr/local/nagios/etc/objects/contacts.cfg
     email                   omaciasnarvaez@gmail.com ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
 
+# Commands.
 sudo nano /usr/local/nagios/etc/objects/commands.cfg
 define command{
     command_name check_nrpe
@@ -86,6 +86,13 @@ define host{
         host_name        ubuntu2
         alias            Linux_Ubuntu_2
         address          10.0.0.12
+}
+
+define host{
+        use              linux-server
+        host_name        dns2
+        alias            DNS_Ubuntu_2
+        address          8.8.8.8
 }
 
 define service{
@@ -121,8 +128,9 @@ nano /root/.bashrc
 alias nagioscheck='/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg'
 alias nagiosreload='systemctl restart nagios'
 
-source .bashrc
+source /root/.bashrc
 nagioscheck
+exit
 
 sudo systemctl start nagios
 sudo systemctl enable nagios
@@ -133,3 +141,6 @@ http://10.0.0.10/nagios/
 
 sudo su
 nagiosreload
+exit
+
+exit
