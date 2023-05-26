@@ -24,7 +24,8 @@ yes | sudo apt upgrade;
         php \
         libapache2-mod-php \
         net-tools \
-        traceroute;
+        traceroute \
+        nmap;
 sudo wget https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.6.tar.gz;
     sudo tar -xf nagios-4.4.6.tar.gz;
     cd nagioscore-nagios-4.4.6/ || exit;
@@ -112,29 +113,64 @@ define service{
 define service{
         use                     generic-service
         host_name               ubuntu
-        service_description     traceroute 10.0.0.11 22
-        check_command           check_traceroute!22
+        service_description     traceroute
+        check_command           check_traceroute!10.0.0.11!22
 }
 
 define service{
         use                     generic-service
         host_name               ubuntu2
-        service_description     traceroute 10.0.0.12 22
-        check_command           check_traceroute!22
+        service_description     traceroute
+        check_command           check_traceroute!10.0.0.12!22
 }
 
-sudo su
-nano /root/.bashrc
+define service {
+        use                     generic-service
+        host_name               ubuntu2
+        service_description     Puerto
+        check_command           check_tcp!22
+}
+
+define service {
+        use                     generic-service
+        host_name               ubuntu
+        service_description     Puerto
+        check_command           check_tcp!22
+}
+
+define service {
+        use                     generic-service
+        host_name               dns2
+        service_description     DNS
+        check_command           check_tcp!53
+}
+
+define service {
+        use                     generic-service
+        host_name               dns2
+        service_description     Puerto
+        check_command           check_tcp!443
+}
+
+define service {
+        use                     generic-service
+        host_name               ubuntu
+        service_description     Apache2
+        check_command           check_tcp!80
+}
+
+sudo nano /root/.bashrc
 alias nagioscheck='/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg'
 alias nagiosreload='systemctl restart nagios'
 
+sudo su
 source /root/.bashrc
 nagioscheck
 exit
 
 sudo systemctl start nagios
 sudo systemctl enable nagios
-sudo systemctl status nagios
+echo q | sudo systemctl status nagios
 sudo systemctl restart apache2
 
 http://10.0.0.10/nagios/
