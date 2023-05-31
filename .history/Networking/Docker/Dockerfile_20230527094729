@@ -1,0 +1,6 @@
+FROM ubuntu:lunar
+
+RUN apt-get update -y && rm -rf /var/lib/apt/lists/*; \
+
+
+

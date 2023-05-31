@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  # ----------------
+  # PostgreSQL.
+  # ----------------
+  server:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    tty: true
+
+  server:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    ports:
+      - "8080:80"
+    tty: true
