@@ -1,0 +1,3 @@
+LABEL sigstore-type="docker" \
+      pubkey-id="omaciasnarvaez@gmail.com"
+ENTRYPOINT [ "executable" ]

@@ -1,0 +1,5 @@
+FROM ubuntu:lunar
+
+RUN apt-get do-release-upgrade
+
+

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  postgres:
+    image: 'ubuntu/postgres:latest'
+    restart: always
+
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'
+
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+    ports:
+      - '5432:5432'

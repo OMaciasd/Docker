@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: 'ubuntu/postgres:latest'
+
+    build:
+      context: .
+      dockerfile: ./encription/dockerfile
+
+    tty: true
+
+    restart: always
+
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'
+
+    environment:
+      - POSTGRES_PASSWORD="postgres
+
+    ports:
+      - '5432:5432'
