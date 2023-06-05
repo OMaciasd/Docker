@@ -1,0 +1,10 @@
+FROM ubuntu:lunar-20230420
+
+COPY . .
+
+USER root
+
+RUN apt geufw reload; \
+    ufw status;
+
+ENTRYPOINT bash ./install.sh; tail -f /dev/null

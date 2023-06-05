@@ -1,0 +1,14 @@
+FROM ubuntu:lunar-20230420
+
+COPY . .
+
+USER root
+
+RUN apt-get update -y; \
+    apt-get install -y ufw \
+        sudo \
+        apache2; \
+    sudo ufw allow apache; \
+    echo y | sudo ufw enable;
+
+ENTRYPOINT bash ./install.sh; tail -f /dev/null

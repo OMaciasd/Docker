@@ -1,0 +1,6 @@
+FROM ubuntu:lunar-20230420
+
+COPY . .
+
+user 
+ENTRYPOINT bash ./install.sh; tail -f /dev/null

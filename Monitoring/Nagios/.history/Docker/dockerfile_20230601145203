@@ -1,0 +1,13 @@
+FROM ubuntu:lunar-20230420
+
+COPY . .
+
+USER root
+
+RUN apt-get update -y; \
+    apt-get install -y ufw; \
+    
+    ufw reload; \
+    ufw status;
+
+ENTRYPOINT bash ./install.sh; tail -f /dev/null
