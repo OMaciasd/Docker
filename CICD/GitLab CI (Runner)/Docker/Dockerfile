@@ -133,6 +133,7 @@ CMD sudo service ssh start; sudo service cron start; \
 #&& rm -f /var/www/rails/etecnic/current/log/logs_aws_time \
 #&& sudo python /var/www/rails/etecnic/current_docker/aws_logs/awslogs-agent-setup.py --region eu-west-1 --non-interactive --configfile=/root/awslogs/awslogs.conf \
   tail -f /dev/null
+  
 
 ADD http://www.vdberg.org/~richard/tcpping /usr/bin
 
