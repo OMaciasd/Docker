@@ -1,0 +1,42 @@
+version: '3.5'
+
+volumes:
+    gitlab_runner_volume:
+        external: false
+    gitlab_sock_network:
+        external: false
+    gitlab_config_network:
+        external: false
+        
+networks:
+    etecnic_network:
+        external:
+            name: etecnic_network
+
+services:
+    gitlab_runner:
+        build:
+            context: .
+            dockerfile: ./docker_staging/Dockerfile
+        volumes:
+            - gitlab_runner_volume:/var/www/rails/etecnic/
+            - gitlab_sock_network:/var/run/docker.sock
+            - gitlab_config_network:/etc/gitlab-runner
+        ports:
+            - target: 22
+              published: 2220
+              protocol: tcp
+              mode: host
+        image: gitlab_runner_capistrano
+        container_name: "gitlab_runner-container"
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.30'
+                    memory: 250M
+                reservations:
+                    cpus: '0.10'
+                    memory: 100M
+        networks:
+            - etecnic_network
