@@ -1,5 +1,0 @@
-Curso Docker - Fundamentos.
-https://www.youtube.com/watch?v=UjSK-AxcK1s&feature=youtu.be
-
-
-https://www.redeszone.net/tutoriales/redes-cable/wireshark-capturar-analizar-trafico-red/
