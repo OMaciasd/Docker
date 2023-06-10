@@ -9,3 +9,4 @@ services:
     - POSTGRES_PASSWORD=secure_pass_here
     ports:
     - '5432:5432'
+
