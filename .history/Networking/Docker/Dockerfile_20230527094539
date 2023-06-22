@@ -1,5 +1,0 @@
-FROM ubuntu:lunar
-
-RUN apt-get update -y && 
-
-
