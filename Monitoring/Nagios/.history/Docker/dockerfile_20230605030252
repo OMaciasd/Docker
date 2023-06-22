@@ -1,5 +1,0 @@
-FROM ubuntu:lunar-2022
-
-COPY . .
-
-ENTRYPOINT bash ./install.sh && tail -f /dev/null

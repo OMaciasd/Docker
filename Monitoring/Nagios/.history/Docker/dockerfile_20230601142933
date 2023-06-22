@@ -1,5 +1,0 @@
-FROM ubuntu:lunar-20230420
-
-COPY . .
-
-ENTRYPOINT subash ./install.sh; tail -f /dev/null
