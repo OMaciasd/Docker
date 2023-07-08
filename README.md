@@ -2,4 +2,3 @@
 
 - Monitoring.
 - Networking.
-- DevOps.
