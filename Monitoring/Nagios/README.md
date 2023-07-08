@@ -1,8 +1,8 @@
 # Nagios
 
-## Deploy lab on Vagrant
+## Deploy lab on Vagrant on VirtualBox
 
-- Go to the vagrant File in the path from root.
+- Go to the Vagrant File in the path from root.
 
 ``` bash
 cd ./CaC
